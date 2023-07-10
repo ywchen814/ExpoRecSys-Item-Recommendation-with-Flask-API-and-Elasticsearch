@@ -1,8 +1,10 @@
 # Enhancing Product Discovery in Exhibition 📈
 
 <!-- <font size=+3><center><b>Telco Churn Prediction with ML Insights 📈</b></center></font> -->
-<img src=".\rec.png" style="float: center;" width="360" height="360" />
-<span style="font-size: 12px;"><center><em>Photo by NVIDIA</em></center></span>
+<div style="text-align: center;">
+  <img src="rec.png" alt="Image" style="display: block; margin: 0 auto;" width="360" height="360" />
+</div>
+<span style="font-size: 12px;"><center><em>Photo by NVIDIA</em></center></span> <br>
 <span style="font-size: 20px;"><left><b>Table of Contents</b></left></span>
 
 - [Introduction](#Introduction)
