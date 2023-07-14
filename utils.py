@@ -3,9 +3,12 @@ import torch
 import pickle
 from typing import List, Tuple
 from sentence_transformers import SentenceTransformer
-from sentence_transformers.util import semantic_search, dot_score
+from deep_translator import GoogleTranslator
+from sentence_transformers.util import semantic_search
 
-model = SentenceTransformer('paraphrase-distilroberta-base-v1')
+
+model_en = SentenceTransformer('all-mpnet-base-v2')
+translator = GoogleTranslator(source='zh-TW', target='english')
 
 def recommend_top_k_by_id(product_id: str, id_embedding_dict: dict, k: int=5, threshold: float = 0.75) -> Tuple[List[str], List[float]]:
     '''
@@ -82,8 +85,12 @@ def recommend_top_k_by_keywords(keywords: str, words_embedding_dict: dict, k: in
     Example:
         rec_pd_ids, rec_scores = recommend_top_k('Knife', words_embedding_dict, 5, 0.75)
     '''
-
-    word_embedding = normalize_embedding(model.encode(keywords))
+    # translate to English
+    en_text = translator.translate(keywords)
+    print(keywords)
+    word_embedding = normalize_embedding(model_en.encode(en_text))
+    # Replicate to correspond the shape of words_embedding(product_em_en, des_em_en)
+    word_embedding = np.concatenate((word_embedding, word_embedding), axis = 0)  
     products_id = list(words_embedding_dict.keys())
     words_embedding = list(words_embedding_dict.values())
 
