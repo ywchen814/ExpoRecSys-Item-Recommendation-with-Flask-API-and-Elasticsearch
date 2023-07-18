@@ -3,7 +3,7 @@ from utils import *
 
 app = Flask(__name__)
 
-@app.route('/')
+@app.route('/', methods = ['GET'])
 def index():
     return 'Welcome to Recommendation System!'
 
@@ -36,4 +36,4 @@ if __name__ == '__main__':
 
     id_embedding_dict = load_tensor_embedding('.\embedding\item_embedding.pkl')
     keywords_en_em_dict = load_tensor_embedding('.\embedding\keywords_en_em.pkl')
-    app.run(host='127.0.0.1', port=5000, debug=True)
+    app.run(host='127.0.0.1', port=5000, debug=False)

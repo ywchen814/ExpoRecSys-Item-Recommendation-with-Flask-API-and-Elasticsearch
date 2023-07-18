@@ -1,0 +1,6 @@
+numpy
+torch
+pickle
+flask
+sentence_transformers
+Elasticsearch
