@@ -87,7 +87,6 @@ def recommend_top_k_by_keywords(keywords: str, words_embedding_dict: dict, k: in
     '''
     # translate to English
     en_text = translator.translate(keywords)
-    print(keywords)
     word_embedding = normalize_embedding(model_en.encode(en_text))
     # Replicate to correspond the shape of words_embedding(product_em_en, des_em_en)
     word_embedding = np.concatenate((word_embedding, word_embedding), axis = 0)  
