@@ -24,7 +24,12 @@ def connect_to_elasticsearch(host="localhost", port=9200):
     except Exception as e:
         print(f"An error occurred: {e}")  # Print any exception that occurred during the connection attempt
 
-es = connect_to_elasticsearch()
+ELASTIC_PASSWORD = "RgPL5UEnWEbIr+9oJ8J-"
+es = Elasticsearch(
+    "https://localhost:9200",
+    ca_certs="./http_ca.crt",
+    basic_auth=("elastic", ELASTIC_PASSWORD)
+)
 index_name = 'products'
 
 def recommend_top_k_by_keywords_es(keywords: str, num_results: int = 5) -> List[Dict[str, str]]:
@@ -55,7 +60,7 @@ def recommend_top_k_by_keywords_es(keywords: str, num_results: int = 5) -> List[
                     "query": keywords,
                     "fields": ['Product_Name', 'Product_Name_en', 'Description', 'Description_en'],
                     "type": "cross_fields",
-                    "operator": "and"
+                    "operator": "or"
                 }
             },
             "size": num_results
