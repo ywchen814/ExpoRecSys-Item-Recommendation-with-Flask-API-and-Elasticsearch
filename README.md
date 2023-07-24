@@ -1,6 +1,6 @@
 # ExpoRecSys: Item Recommendation with Flask API and Elasticsearch
 
-## Introduction
+## Objective
 
 ExpoRecSys is a powerful item recommendation system designed for the dynamic exhibition industry. This GitHub project provides a comprehensive solution that combines Flask API for deploying the recommendation model and Elasticsearch for efficient text data storage and retrieval. With ExpoRecSys, attendees can effortlessly explore and discover products that align with their interests, thereby enhancing their exhibition experience while also boosting manufacturers' revenue.
 
