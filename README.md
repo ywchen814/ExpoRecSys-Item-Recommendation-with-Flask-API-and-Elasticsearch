@@ -7,7 +7,7 @@ ExpoRecSys is a powerful item recommendation system designed for the dynamic exh
 ## Technical Features
 
 - Utilization of **Sentence-BERT** for semantic search and generating similar product recommendations
-- Implementation of unsupervised learning techniques for building effective recommendation models
+- Implementation of **Unsupervised Learning** techniques for building effective recommendation models
 - **Flask API** for deploying the item-based recommendation model
 - **Elasticsearch** integration for efficient text data storage and retrieval
 
@@ -57,10 +57,6 @@ Given keywords, this endpoint uses Elasticsearch to search for products related 
 - Description: The text description of the product in Chinese.
 - Product_Name_en: The name or title of the product in English.
 - Description_en: The text description of the product in English.
-
-## Requirement.txt
-
-The file lists the required Python dependencies for running the project.
 
 <!-- ## License
 
