@@ -41,9 +41,10 @@ Given keywords, this endpoint uses Elasticsearch to search for products related 
 
 ## File Structure
 
-- `api.py`: Implements the Flask API with endpoints for item recommendation and product search
-- `es.py`: Contains functions to connect to Elasticsearch, perform product searches based on keywords
-- `utils.py`: Provides utility functions for the recommendation model, including Recommending Top-K, Embedding Normalization, Loading Tensor Embeddings
+- `api.py`: Implement the Flask API with endpoints for item recommendation and product search
+- `es.py`: Contain functions to connect to Elasticsearch, perform product searches based on keywords
+- `es_store_data.py`: Load data in a dictionary format and store it into Elasticsearch
+- `utils.py`: Provide utility functions for the recommendation model, including Recommending Top-K, Embedding Normalization, Loading Tensor Embeddings
 - `data/`: Directory to store data in a dictionary format for immediate storage in Elasticsearch
 - `embedding/`: Directory to store product name and description embeddings transformed from Sentence-BERT
 
