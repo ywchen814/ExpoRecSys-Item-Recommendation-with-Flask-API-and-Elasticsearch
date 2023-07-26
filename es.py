@@ -13,7 +13,11 @@ def connect_to_elasticsearch(host="localhost", port=9200):
         Elasticsearch: The Elasticsearch object on successful connection.
     """
     try:
-        es = Elasticsearch(f"http://{host}:{port}")
+        es = Elasticsearch(
+        "https://localhost:9200",
+        ca_certs="./http_ca.crt",
+        basic_auth=("elastic", ELASTIC_PASSWORD)
+        )
 
     # Check if the connection was successful by pinging the cluster
         if es.ping():
@@ -25,11 +29,7 @@ def connect_to_elasticsearch(host="localhost", port=9200):
         print(f"An error occurred: {e}")  # Print any exception that occurred during the connection attempt
 
 ELASTIC_PASSWORD = "RgPL5UEnWEbIr+9oJ8J-"
-es = Elasticsearch(
-    "https://localhost:9200",
-    ca_certs="./http_ca.crt",
-    basic_auth=("elastic", ELASTIC_PASSWORD)
-)
+es = connect_to_elasticsearch()
 index_name = 'products'
 
 def recommend_top_k_by_keywords_es(keywords: str, num_results: int = 5) -> List[Dict[str, str]]:
