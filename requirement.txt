@@ -1,6 +1,6 @@
 numpy
 torch
-pickle
 flask
 sentence_transformers
+deep_translator
 Elasticsearch

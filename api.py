@@ -35,7 +35,7 @@ def recommend_by_keywords():
 
 @app.route('/recommend_by_keywords_es', methods=['POST'])
 def recommend_by_keywords_es():
-    keywords = request.json['Product_id']
+    keywords = request.json['Keywords']
     rec_pd_id_ls = recommend_top_k_by_keywords_es(keywords)
     response = []
 
@@ -53,7 +53,7 @@ def search_by_id():
 
 if __name__ == '__main__':
 
-    id_embedding_dict = load_tensor_embedding('.\embedding\item_embedding.pkl')
-    keywords_en_em_dict = load_tensor_embedding('.\embedding\keywords_en_em.pkl')
+    id_embedding_dict = load_tensor_embedding('./embedding/item_embedding.pkl')
+    keywords_en_em_dict = load_tensor_embedding('./embedding/keywords_en_em.pkl')
     app.run(host='127.0.0.1', port=5000, debug=True)
 

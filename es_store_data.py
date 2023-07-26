@@ -1,7 +1,7 @@
 from elasticsearch import Elasticsearch
 import pickle
 
-ELASTIC_PASSWORD = "RgPL5UEnWEbIr+9oJ8J-"
+ELASTIC_PASSWORD = "vL0pU8d_kLmcXUzrT0rT"
 
 es = Elasticsearch(
     "https://localhost:9200",
@@ -9,7 +9,7 @@ es = Elasticsearch(
     basic_auth=("elastic", ELASTIC_PASSWORD)
 )
 
-file_name = '.\Data\df_dict.pkl'
+file_name = './Data/df_dict.pkl'
 with open(file_name, "rb") as file:
     df_dict = pickle.load(file)
 
