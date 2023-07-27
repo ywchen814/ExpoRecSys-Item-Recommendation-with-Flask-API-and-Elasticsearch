@@ -3,16 +3,19 @@ import pickle
 
 ELASTIC_PASSWORD = "vL0pU8d_kLmcXUzrT0rT"
 
+# Connect to Elasticsearch
 es = Elasticsearch(
     "https://localhost:9200",
     ca_certs="./http_ca.crt",
     basic_auth=("elastic", ELASTIC_PASSWORD)
 )
 
+# Load the data
 file_name = './Data/df_dict.pkl'
 with open(file_name, "rb") as file:
     df_dict = pickle.load(file)
 
+# Store the data in Elasticsearch
 index_name = 'products'
 for i, product in enumerate(df_dict):
     es.index(index=index_name, id = product['Product_id'], body=product)
