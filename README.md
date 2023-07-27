@@ -17,7 +17,7 @@ ExpoRecSys is a powerful item recommendation system designed for the dynamic exh
 2. Create a Docker network: `docker network create elastic`
 3. Run the Elasticsearch container: `docker run --name es --net elastic -p 9200:9200 -it docker.elastic.co/elasticsearch/elasticsearch:8.8.2`
 4. Set the required system configuration: `sudo sysctl -w vm.max_map_count=262144`
-5. Start the Elasticsearch container: `docker start es`.
+5. Start the Elasticsearch container: `docker start es`
 6. Install the required Python dependencies: `pip install -r requirements.txt`
 7. Run `api.py` to start the Flask API server: `python api.py`
 
