@@ -21,6 +21,13 @@ ExpoRecSys is a powerful item recommendation system designed for the dynamic exh
 6. Install the required Python dependencies: `pip install -r requirements.txt`
 7. Run `api.py` to start the Flask API server: `python api.py`
 
+### Data Preprocessing
+
+Before using ExpoRecSys, you need to preprocess the data into a dictionary format and generate embeddings from text information. Follow these steps:
+
+1. Open `Data-Preprocessing.ipynb`
+2. Execute the notebook to preprocess the data and generate embeddings using Sentence-BERT
+
 ## API Endpoints
 
 ### `/search_by_id` (POST)
@@ -42,6 +49,7 @@ Given keywords, this endpoint uses Elasticsearch to search for products related 
 ## File Structure
 
 - `api.py`: Implement the Flask API with endpoints for item recommendation and product search
+- `Data-Preprocessing.ipynb`: Preprocess data into dictionary format and generate embeddings using Sentence-BERT
 - `es.py`: Contain functions to connect to Elasticsearch, perform product searches based on keywords
 - `es_store_data.py`: Load data from `data/` in a dictionary format and store it in Elasticsearch
 - `utils.py`: Provide utility functions for the recommendation model, including Recommending Top-K, Embedding Normalization, Loading Tensor Embeddings
