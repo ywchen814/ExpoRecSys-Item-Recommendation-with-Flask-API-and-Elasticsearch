@@ -28,23 +28,120 @@ Before using ExpoRecSys, you need to preprocess the data into a dictionary forma
 1. Open `Data-Preprocessing.ipynb`
 2. Execute the notebook to preprocess the data and generate embeddings using Sentence-BERT
 
-## API Endpoints
+## API Documentation
 
-### `/search_by_id` (POST)
+ExpoRecSys API provides various endpoints to interact with the recommendation system and search for products using different methods.
 
+**Base URL:** `http://127.0.0.1:5000/`
+
+**General Notes:**
+- Please ensure all data is sent in JSON format for all endpoints.
+- The server will respond with JSON data for each endpoint.
+
+### Search Product by ID
+#### `/search_by_id` (POST)
+
+**Description:**
 Given a product ID, this endpoint searches for the product in Elasticsearch and returns its information.
 
-### `/recommend_by_id` (POST)
+**Request:**
 
+```json
+{
+    "Product_id": "CU0103347409"
+}
+```
+**Response:**
+
+```json
+{
+    "Description": "適合用於修補用途",
+    "Description_en": "●Suitable to be used in mending purpose mainly in agricultural sector.",
+    "Product_Name": "PE 修補膠帶",
+    "Product_Name_en": "PE repair tape",
+    "Product_id": "CU0004601801"
+}
+```
+### Recommend Products by ID
+#### `/recommend_by_id` (POST)
+
+**Description:**
 Given a product ID, this endpoint returns the top recommended products along with their similarity scores.
 
-### `/recommend_by_keywords` (POST)
+**Request:**
 
+```json
+{
+    "Product_id": "CU0103347409"
+}
+```
+**Response:**
+
+```json
+[
+    {
+        "Product_id": "CU0004601803",
+        "Score": 0.856
+    }
+]
+```
+### Recommend Products by Keywords
+#### `/recommend_by_keywords` (POST)
+
+**Description:**
 Given keywords, this endpoint returns the top recommended products related to the provided keywords, along with their similarity scores.
 
-### `/recommend_by_keywords_es` (POST)
+**Request:**
 
+```json
+{
+    "Keywords": "tape"
+}
+```
+**Response:**
+
+```json
+[
+    {
+        "Product_id": "CU0004601803",
+        "Score": 0.856
+    },
+    {
+        "Product_id": "CU0004601804",
+        "Score": 0.492
+    }
+]
+```
+### Recommend Products by Keywords using Elasticsearch
+#### `recommend_by_keywords_es`  (POST)
+
+**Description:**
 Given keywords, this endpoint uses Elasticsearch to search for products related to the keywords and returns the top recommended product IDs.
+
+**Request:**
+
+```json
+{
+    "Keywords": "tape"
+}
+```
+**Response:**
+
+```json
+[
+    {
+        "Product_id": "CU0004601803"
+    },
+    {
+        "Product_id": "CU0004601804"
+    }
+]
+```
+### Note
+
+* For endpoints /recommend_by_id, /recommend_by_keywords, and /recommend_by_keywords_es, the returned products are sorted in descending order of similarity scores.
+* For endpoint /search_by_id, if the product with the given ID is not found, an empty response will be returned.
+* Please ensure that you send the appropriate JSON request to the respective endpoints and handle the responses accordingly.
 
 ## File Structure
 
