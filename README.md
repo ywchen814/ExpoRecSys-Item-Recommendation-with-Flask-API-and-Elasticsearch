@@ -56,7 +56,7 @@ Given a product ID, this endpoint searches for the product in Elasticsearch and 
 ```json
 {
     "Description": "適合用於修補用途",
-    "Description_en": "●Suitable to be used in mending purpose mainly in agricultural sector.",
+    "Description_en": "Suitable to be used in mending purpose mainly in agricultural sector.",
     "Product_Name": "PE 修補膠帶",
     "Product_Name_en": "PE repair tape",
     "Product_id": "CU0004601801"
