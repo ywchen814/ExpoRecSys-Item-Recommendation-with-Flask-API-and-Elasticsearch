@@ -20,7 +20,7 @@ ExpoRecSys is a powerful item recommendation system designed for the dynamic exh
 5. Set the required system configuration: `sudo sysctl -w vm.max_map_count=262144`
 6. Start the Elasticsearch container: `docker start es`
 7. Install the required Python dependencies: `pip install -r requirements.txt` or `conda env create -f ./environment.yml`
-8. Run `python api.py` to start the Flask API server: 
+8. Run `api.py` to start the Flask API server: `python api.py`
 
 ### Data Preprocessing
 
@@ -30,7 +30,7 @@ Before using ExpoRecSys, you need to preprocess the data into a dictionary forma
 2. Execute the notebook and load the data to 
     *   preprocess the data and store it into `./data` in dictionary format
     *   generate embeddings using Sentence-BERT and store it into `./embedding`
-3. run `python es_store_data.py` to load data from `./data` with a dictionary format and store it in Elasticsearch 
+3. run `es_store_data.py` to load data from `./data` with a dictionary format and store it in Elasticsearch: `python es_store_data.py` 
 
 ## API Documentation
 
