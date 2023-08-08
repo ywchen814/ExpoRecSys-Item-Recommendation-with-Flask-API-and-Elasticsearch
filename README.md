@@ -15,9 +15,10 @@ ExpoRecSys is a powerful item recommendation system designed for the dynamic exh
 
 1. Pull the Elasticsearch Docker image: `docker pull docker.elastic.co/elasticsearch/elasticsearch:8.8.2`
 2. Create a Docker network: `docker network create elastic`
-3. Run the Elasticsearch container: `docker run --name es --net elastic -p 9200:9200 -it docker.elastic.co/elasticsearch/elasticsearch:8.8.2`
-4. Record the password and update the `ELASTIC_PASSWORD` variable in both `es.py` and `es_store_data.py`
-5. Set the required system configuration: `sudo sysctl -w vm.max_map_count=262144`
+3. Run the Elasticsearch container: `docker run --name es --net elastic -p 9200:9200 -it docker.elastic.co/elasticsearch/elasticsearch:8.8.2`<br>
+If error, set the required system configuration: `sudo sysctl -w vm.max_map_count=262144` and rerun again.
+4. Copy the http_ca.crt security certificate from your Docker container to your local machine:<br> `docker cp es01:/usr/share/elasticsearch/config/certs/http_ca.crt`
+5. Record the password and update the `ELASTIC_PASSWORD` variable in both `es.py` and `es_store_data.py`
 6. Start the Elasticsearch container: `docker start es`
 7. Install the required Python dependencies: `pip install -r requirements.txt` or `conda env create -f ./environment.yml`
 8. Run `api.py` to start the Flask API server: `python api.py`
